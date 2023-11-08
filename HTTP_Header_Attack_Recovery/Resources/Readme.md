@@ -1,7 +1,10 @@
-When Getting the recovery password page with burpsuite and a proxy we see a mail in the header
-	webmaster@borntosec.com
+# Password Reset Poisoning
 
-We change it with another mail and voila
+When asking for recovery password we can look at header and see a dest mail in the header
+webmaster@borntosec.com
 
-https://infosecwriteups.com/http-host-header-attacks-55ca4b7786c
+We can exploit it poisoning the header field with other mail address.
 
+## External Resources
+
+https://www.acunetix.com/blog/articles/password-reset-poisoning/
