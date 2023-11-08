@@ -1,6 +1,5 @@
 # Referer Based Access Control
 
-
 By clicking on the Copyright in the footer, we acces to the famous albatroz page,
 when exploring the source code in the inspector (or the response in burp suite), we see comments asking us to come from another site and another browser.
 

@@ -1,3 +1,5 @@
+# Htpasswd Based Authentication
+
 <!-- Depends on network -->
 nmap -v -A -T4 192.168.56.103
 
@@ -17,9 +19,6 @@ We find 2 directories:
 In whatever there is a htpasswd file that contain:
 root:437394baff5aa33daa618be47b75cb49
 
-https://httpd.apache.org/docs/2.4/fr/programs/htpasswd.html
-https://defendtheweb.net/discussion/1159-bypassing-htaccesshtpasswd-based-authentication
-
 It looks like MD5, we can try to bruteforce it with hashcat and rockyou:
 ```shell
 hashcat -m 0 -a 0 hash /<PATH>/rockyou.txt --force
@@ -27,3 +26,8 @@ hashcat -m 0 -a 0 hash /<PATH>/rockyou.txt --force
 We find:
 437394baff5aa33daa618be47b75cb49:qwerty123@
 We can't connect to this in login page but there is an admin connect page
+
+## External Resources
+
+https://httpd.apache.org/docs/2.4/fr/programs/htpasswd.html
+https://defendtheweb.net/discussion/1159-bypassing-htaccesshtpasswd-based-authentication
