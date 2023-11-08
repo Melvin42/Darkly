@@ -19,7 +19,7 @@ nmap -v -A -T4 192.168.56.103
 	https://defendtheweb.net/discussion/1159-bypassing-htaccesshtpasswd-based-authentication
 
 	It looks like MD5, we can try to bruteforce it with hashcat and rockyou:
-	hashcat -m 0 -a 0 hash /<PATH>/rockyou.txt --force
+	hashcat -m 0 -a 0 hash ~/sgoinfre/SecLists/Passwords/Leaked-Databases/rockyou.txt --force
 	We find:
 	437394baff5aa33daa618be47b75cb49:qwerty123@
 	We can't connect to this in login page but there is an admin connect page
