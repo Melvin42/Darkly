@@ -1,5 +1,8 @@
 # Scrapping
 
+To protect some directory of your website against web-crawlers, you can add a robots.txt
+to disallow some entries, but we can saw them with nmap.
+
 During scanning with nmap we've seen several informations:
 <!-- Depends on network -->
 ```shell
@@ -28,3 +31,6 @@ following this URL we find a lot of links, with a README file in each folder. we
 python3 scrapper.py
 cat scrapFile | grep "flag"
 ```
+
+## External Resources
+https://robots-txt.com/
