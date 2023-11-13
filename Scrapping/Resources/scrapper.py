@@ -7,12 +7,10 @@ def recursiveFlag(addr):
     soup = BeautifulSoup(f.read())
     for path in soup.find_all('a'):
         href = path.get('href')
-        if (href.startswith('.')):
-            print("")
-        elif (href.endswith('/')):
+        if (href.endswith('/') and not href.startswith('.')):
             recursiveFlag(addr + href)
         elif (not href.startswith('.')):
-            os.system('curl ' + addr + href + ' >> ./scrapFile')
+            os.system('curl ' + addr + href + ' >> ./scrappedDatas')
 
 # depends on address of target machine
 recursiveFlag('http://192.168.56.102/.hidden/')
