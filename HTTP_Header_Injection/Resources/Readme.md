@@ -2,7 +2,7 @@
 
 Passing datas through header could be a serious breach as we can use a tool like BurpSuite to modify it.
 
-The survey page allows us tu vote for some users, icking a note between 1 and 10 in a list.
+The survey page allows us to vote for some users, icking a note between 1 and 10 in a list.
 Let's check the request:
 ```shell
 POST /?page=survey HTTP/1.1

@@ -1,6 +1,6 @@
 # Htpasswd Based Authentication
 
-An hpasswd file is a txt file that contains credentials of users (for authentication).
+An htpasswd file is a txt file that contains credentials of users (for authentication).
 It could contains sensitive informations (encrypted or not).
 
 <!-- Depends on network -->

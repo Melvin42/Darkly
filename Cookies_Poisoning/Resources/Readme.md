@@ -21,6 +21,6 @@ Just replace the cookie value with the new value with Burp Suite (in the repeate
 	df2eb4ba34ed059a1e3e89ff4dfc13445f104a1a52295214def1c4fb1693a5c3
 
 ## External Resources
-https://www.dcode.fr/identification-chiffrement
-https://www.dcode.fr/hash-md5
+https://www.dcode.fr/identification-chiffrement </br>
+https://www.dcode.fr/hash-md5 </br>
 https://gchq.github.io/CyberChef/#recipe=MD5()
