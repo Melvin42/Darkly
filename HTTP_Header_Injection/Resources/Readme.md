@@ -1,5 +1,7 @@
 # HTTP Header Injection
 
+Passing datas through header could be a serious breach as we can use a tool like BurpSuite to modify it.
+
 The survey page allows us tu vote for some users, icking a note between 1 and 10 in a list.
 Let's check the request:
 ```shell

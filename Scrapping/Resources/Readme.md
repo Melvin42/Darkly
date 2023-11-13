@@ -1,6 +1,6 @@
 # Scrapping
 
-To protect some directory of your website against web-crawlers, you can add a robots.txt
+To protect some directory of your website against web-crawlers, you can add a robots.txt file
 to disallow some entries, but we can saw them with nmap.
 
 During scanning with nmap we've seen several informations:
@@ -23,8 +23,9 @@ Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
 Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
 Nmap done: 1 IP address (1 host up) scanned in 33.57 seconds
 ```
-We can see on port 80 many intels, but one of them is more interesting: .hidden
+Usualy, a bot will check for robots.txt before reference/navigate on website.
 
+We can see on port 80 many intels, but one of them is more interesting: .hidden
 following this URL we find a lot of links, with a README file in each folder. we will need to check every file in every folder, so we will use scrapping (recursive) to be able to read every README file.
 
 ```bash

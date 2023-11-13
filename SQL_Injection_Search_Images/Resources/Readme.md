@@ -14,7 +14,7 @@ First name: Hack me ?
 Surname : If you read this just use this md5 decode lowercase then sha256 to win this flag ! : 1928e8083cf461a51303633093573c46
 ```
 
-In kali linux, as the comment says us, we can decode this MD5 hash.
+In kali linux, as the comment tell us, we can decode this MD5 hash.
 
 ```
 echo -n 1928e8083cf461a51303633093573c46 > images.hash

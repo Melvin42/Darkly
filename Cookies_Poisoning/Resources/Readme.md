@@ -1,9 +1,9 @@
 # Cookie Poisoning
 
-The Session ID cookie is here to avoid you to tape your password every time,
-if you can stole cookie of other user, you can connect on the website with their account without the password.
-Sometime cookie are here to give more rights on certain user and if we understand how it is encoded,
-we can reverse it, modify it and get more privilege on the site.
+The Session ID cookie is used as credentials to aloow you to navigate on every page without confirm your identity on each request.
+So if you can stole cookie of an existing user, you can navigate as if you were him, with same rights.
+Some cookies are used to give more rights on certain user (like admin) and if we understand how it is encoded,
+we can reverse it, modify it and get more privileges on the site.
 
 Open the console and check for cookies.
 There is a cookie "I am admin" with value 68934A3E9455FA72420237EB05902327

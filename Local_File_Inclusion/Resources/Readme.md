@@ -6,7 +6,7 @@ http://192.168.56.102/index.php?page=survey
 http://192.168.56.102/index.php?page=member
 
 The server probably loads a local file with a relative path.
-We can use that breach to access to files at the root folder of the machine like /etc/passwd
+Relative path is dangerous because we can use that breach to access files at the root folder of the machine like /etc/passwd
 to get some interesting informations.
 
 Lets try this link:

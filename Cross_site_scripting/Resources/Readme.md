@@ -1,5 +1,8 @@
 # Cross-site Scripting (XSS)
-	
+
+XSS injection is a kind of attack that exploit a breach which allow us to inject code directly in the page.
+We can inject script in many ways, but for now lets focus on the fileds of a form (POST request).
+
 The feedback page allow us to post coments on the site with a form.
 First thing to do in that case is check if the site is protected against XSS injection.
 The most easier way is to try to pop an _alert_ with an html tag _\<script\>_
